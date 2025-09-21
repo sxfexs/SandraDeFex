@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portafolio · Sandra Ximena De Fex Sierra</title>
   <meta name="description" content="Portafolio de proyectos GIS, data science y mapeo participativo.">
   <meta property="og:title" content="Portafolio · Sandra Ximena De Fex Sierra">
-  <meta property="og:description" content="Proyectos de GIS, datos abiertos y mapeo participativo en LAC.">
+  <meta property="og:description" content="GIS · Data Science · Ingeniería · Mapeo participativo">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/img/cover.png">
   <link rel="icon" href="assets/img/favicon.png">
@@ -14,127 +14,238 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <!-- Leaflet (optional map demo) -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script defer src="script.js"></script>
 </head>
 <body>
-  <a class="skip-link" href="#contenido">Saltar al contenido</a>
-  <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="#">Sandra Ximena De Fex Sierra</a>
-      <nav aria-label="Principal">
-        <ul class="menu">
-          <li><a href="#about">Perfil</a></li>
-          <li><a href="#projects">Proyectos</a></li>
-          <li><a href="#workshops">Talleres</a></li>
-          <li><a href="#contact">Contacto</a></li>
-        </ul>
-      </nav>
+  <a class="skip-link" href="#contenidos">Saltar al contenido</a>
+
+  <!-- FRANJA FIJA SUPERIOR -->
+  <header class="topbar" role="banner">
+    <div class="topbar__inner">
+      <div class="brand" id="brand">
+        <img class="brand__avatar" src="assets/img/avatar.png" alt="Avatar de Sandra Ximena De Fex Sierra">
+        <div class="brand__text">
+          <span class="brand__name">Sandra De Fex</span>
+          <span class="brand__titles">GIS · Geoespacial ·Data analyst· project coordinator·</span>
+        </div>
+      </div>
+      <div class="topbar__media">
+        <img src="assets/img/people.gif" alt="communidad y paticipacion" />
+      </div>
     </div>
   </header>
 
-  <section class="hero" id="contenido" role="region" aria-label="Presentación">
-    <div class="container hero-inner">
-      <div>
-        <h1>GIS · Data Science · Mapeo participativo</h1>
-        <p>Ingeniera física y máster en geoinformación. Coordino proyectos de datos abiertos y cartografía social en América Latina. Diseño flujos ETL, análisis espacial y formación en OSM y QGIS.</p>
-        <div class="cta">
-          <a class="btn" href="#projects">Ver proyectos</a>
-          <a class="btn btn-outline" href="CV_SandraDeFex.pdf">Descargar CV</a>
-        </div>
-      </div>
-      <div class="hero-map">
-        <div id="map"></div>
-      </div>
+  <!-- FRANJA FLOTANTE AL HOVER DEL NOMBRE -->
+  <aside class="hover-panel" id="hoverPanel" aria-live="polite">
+    <div class="hover-panel__inner">
+      <p>
+        I’m a physics engineer with an MSc in Geoinformation. I design and implement data pipelines (ETL), conduct spatial analysis, and build geospatial applications. I work with public administrations, NGOs, and companies to turn data into decisions, combining cartography, data science, sostenability and community engagement.
+      </p>
+      <ul class="tags" aria-label="Tecnologías">
+        <li>QGIS</li><li>ArcGIS</li><li>PostGIS</li><li>GEE</li><li>GeoPandas</li><li>FME</li><li>Leaflet</li><li>RAG/LLM</li><li>Streamlit</li> <li>Power BI</li> <li>dbt</li><li>SQL</li><li>Python</li><li>HTML CCS JS</li>
+      </ul>
     </div>
-  </section>
+  </aside>
 
-  <main class="container">
-    <section id="about" class="section">
-      <h2>Perfil</h2>
-      <p>Experiencia en coordinación de mapeos participativos, capacitación en OSM (iD/JOSM/Tasking Manager) y QGIS, integración de fuentes comunitarias e institucionales (PostGIS/FME) y generación de productos accionables para gobiernos locales y ONGs. Compromiso con datos abiertos y desarrollo liderado localmente.</p>
-      <ul class="chips" aria-label="Tecnologías">
-        <li>QGIS</li><li>PostGIS</li><li>Python</li><li>GeoPandas</li><li>FME</li><li>Leaflet</li><li>iD/JOSM</li><li>HOT TM</li><li>ODK/Kobo</li>
-      </ul>
-    </section>
-
+  <main id="contenidos" class="wrap" role="main">
+    <!-- GRID DE PROYECTOS EN MOSAICO -->
     <section id="projects" class="section">
-      <h2>Proyectos destacados</h2>
-      <div class="grid">
-        <article class="card">
-          <img src="assets/img/proj1.png" alt="Vista previa del mapa participativo de Yopal">
-          <div class="card-body">
-            <h3>Geoaplicación participativa · Yopal</h3>
-            <p>Formulario Kobo/ODK, integración OSM, visor Leaflet, tablero de seguimiento y guía metodológica.</p>
-            <div class="card-actions">
-              <a class="btn btn-sm" href="https://github.com/usuario/proyecto1" target="_blank" rel="noopener">Repositorio</a>
-              <a class="btn btn-sm btn-outline" href="#" aria-disabled="true">Demo</a>
-            </div>
+      <h2 class="section__title">Proyectos</h2>
+
+      <div class="masonry-rows" aria-label="Proyectos destacados">
+      <!-- Fila 1: 35% | 65% -->
+      <div class="row row-1">
+        <!-- 1A -->
+        <article class="tile tile--tall" aria-label="LAC migration flows">
+          <div class="tile__content">
+            <iframe
+              src="./imigration.html"
+              title="LAC migration 2000 - 2024"
+              loading="lazy"
+              referrerpolicy="no-referrer"
+            ></iframe>
           </div>
+          <div class="tile__overlay">LAC migration 1990-2024</div>
         </article>
-        <article class="card">
-          <img src="assets/img/proj2.png" alt="Mapa de aptitud para plantas fotovoltaicas en Colombia">
-          <div class="card-body">
-            <h3>Plantas FV · Colombia</h3>
-            <p>Índices multicriterio y mapas de aptitud con PostGIS/QGIS; reporte técnico y recomendaciones.</p>
-            <div class="card-actions">
-              <a class="btn btn-sm" href="https://github.com/usuario/proyecto2" target="_blank" rel="noopener">Repositorio</a>
-              <a class="btn btn-sm btn-outline" href="#" aria-disabled="true">Demo</a>
-            </div>
+
+
+        <!-- 1B -->
+        <article class="tile" aria-label="Mapa de aptitud FV · Colombia">
+          <div class="tile__content">
+            <iframe
+              src="https://sxfexs.github.io/ColombiaRenovables/"
+              title="Demo: Mapa de aptitud FV · Colombia"
+              loading="lazy"
+            ></iframe>
           </div>
-        </article>
-        <article class="card">
-          <img src="assets/img/proj3.png" alt="Chatbot geoespacial para consulta de capas">
-          <div class="card-body">
-            <h3>Chatbot Geo · AMB</h3>
-            <p>RAG para consulta de capas/cartografía; NL→SQL y mapas dinámicos; documentación y arquitectura.</p>
-            <div class="card-actions">
-              <a class="btn btn-sm" href="https://github.com/usuario/proyecto3" target="_blank" rel="noopener">Repositorio</a>
-              <a class="btn btn-sm btn-outline" href="#" aria-disabled="true">Demo</a>
-            </div>
-          </div>
+          <div class="tile__overlay">Aptitud FV · Colombia</div>
         </article>
       </div>
+
+
+
+      <!-- Fila 2: 50% | 50% -->
+      <div class="row row-3">
+        <!-- Carrusel: Análisis de suelo · Sucre (Colombia) -->
+        <article class="tile" aria-label="Análisis de suelo · Sucre (Colombia)">
+          <div class="tile__content">
+            <div class="carousel" data-autoplay="true" data-interval="3500"
+                id="sucre-carrusel" role="region" aria-roledescription="carrusel"
+                aria-label="Análisis de suelo · Sucre (10 imágenes)">
+              <div class="carousel__track">
+                <a class="carousel__slide" href="assets/img/analisis-suelo-sucre-0.jpg" target="_blank" rel="noopener">
+                  <img src="assets/img/analisis-suelo-sucre-imagenes-0.jpg" alt="Sucre · lámina 01" loading="lazy">
+                </a>
+                <a class="carousel__slide" href="assets/img/sucre/analisis-suelo-sucre-imagenes-1.jpg" target="_blank" rel="noopener">
+                  <img src="assets/img/analisis-suelo-sucre-imagenes-1.jpg" alt="Sucre · lámina 02" loading="lazy">
+                </a>
+                <a class="carousel__slide" href="assets/img/sucre/analisis-suelo-sucre-imagenes-2.jpg" target="_blank" rel="noopener">
+                  <img src="assets/img/analisis-suelo-sucre-imagenes-2.jpg" alt="Sucre · lámina 03" loading="lazy">
+                </a>
+                <a class="carousel__slide" href="assets/img/sucre/analisis-suelo-sucre-imagenes-3.jpg" target="_blank" rel="noopener">
+                  <img src="assets/img/analisis-suelo-sucre-imagenes-3.jpg" alt="Sucre · lámina 04" loading="lazy">
+                </a>
+                <a class="carousel__slide" href="assets/img/sucre/analisis-suelo-sucre-imagenes-4.jpg" target="_blank" rel="noopener">
+                  <img src="assets/img/analisis-suelo-sucre-imagenes-4.jpg" alt="Sucre · lámina 05" loading="lazy">
+                </a>
+                <a class="carousel__slide" href="assets/img/sucre/analisis-suelo-sucre-imagenes-05.jpg" target="_blank" rel="noopener">
+                  <img src="assets/img/analisis-suelo-sucre-imagenes-5.jpg" alt="Sucre · lámina 06" loading="lazy">
+                </a>
+                <a class="carousel__slide" href="assets/img/sucre/analisis-suelo-sucre-imagenes-6.jpg" target="_blank" rel="noopener">
+                  <img src="assets/img/sucre/analisis-suelo-sucre-imagenes-6.jpg" alt="Sucre · lámina 07" loading="lazy">
+                </a>
+                <a class="carousel__slide" href="assets/img/sucre/analisis-suelo-sucre-imagenes-7.jpg" target="_blank" rel="noopener">
+                  <img src="assets/img/analisis-suelo-sucre-imagenes-7.jpg" alt="Sucre · lámina 08" loading="lazy">
+                </a>
+                <a class="carousel__slide" href="assets/img/sucre/analisis-suelo-sucre-imagenes-8.jpg" target="_blank" rel="noopener">
+                  <img src="assets/img/analisis-suelo-sucre-imagenes-8.jpg" alt="Sucre · lámina 09" loading="lazy">
+                </a>
+                <a class="carousel__slide" href="assets/img/sucre/analisis-suelo-sucre-imagenes-9.jpg" target="_blank" rel="noopener">
+                  <img src="assets/img/analisis-suelo-sucre-imagenes-9.jpg" alt="Sucre · lámina 10" loading="lazy">
+                </a>
+              </div>
+              <button class="carousel__btn carousel__btn--prev" aria-label="Anterior">‹</button>
+              <button class="carousel__btn carousel__btn--next" aria-label="Siguiente">›</button>
+            </div>
+          </div>
+          <div class="tile__overlay">Análisis de suelo · Sucre (Colombia)</div>
+        </article>
+
+
+        <article class="tile" aria-label="Video demo geoApp fo community mapping">
+          <div class="tile__content tile__content--video">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/DV94rA2obP8?rel=0"
+              title="Video de presentación de proyecto"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="tile__overlay">Video · Presentación</div>
+        </article>
+      </div>
+
+      <!-- Fila 3: 100% -->
+      <div class="row row-2">
+        <article class="tile" aria-label="Galería de proyectos">
+          <div class="tile__content">
+            <div class="carousel" data-autoplay="true" data-interval="4000" id="galeria1" role="region" aria-roledescription="carrusel" aria-label="Galería">
+              <div class="carousel__track">
+                <a class="carousel__slide" harget="_blank" rel="noopener">
+                  <img src="assets/img/1.png" alt="Analisis de imagenes satelitales para detección de incendios">
+                </a>
+                <a class="carousel__slide"  target="_blank" rel="noopener">
+                  <img src="assets/img/3.png" alt="proceso deanaisis de imagenes con python y qgis">
+                </a>
+                <a class="carousel__slide" target="_blank" rel="noopener">
+                  <img src="assets/img/4.png" alt="Autamatizacion pyqgis">
+                </a>
+              </div>
+              <button class="carousel__btn carousel__btn--prev" aria-label="Anterior">‹</button>
+              <button class="carousel__btn carousel__btn--next" aria-label="Siguiente">›</button>
+            </div>
+          </div>
+          <div class="tile__overlay">Geo procesos dei imagenes satelitales</div>
+        </article>
+      </div>
+      <!-- Fila 4: 60% | 40% -->
+<!--       <div class="row row-4">
+        <article class="tile" aria-label="Dashboard en Streamlit">
+          <a class="tile__link" href="https://tu-app-streamlit.streamlit.app/" target="_blank" rel="noopener" title="Abrir dashboard en Streamlit">
+            <div class="tile__content tile__content--cover" style="background-image:url('assets/img/streamlit-cover.png')"></div>
+            <div class="tile__overlay">Dashboard · Streamlit</div>
+          </a>
+        </article>
+
+        <article class="tile" aria-label="Informe técnico · Energía">
+          <a class="tile__link" href="https://github.com/sxfexs/InformeEnergia" target="_blank" rel="noopener">
+            <div class="tile__content tile__content--cover" style="background-image:url('assets/img/proj-report.png')"></div>
+            <div class="tile__overlay">Informe técnico · Energía</div>
+          </a>
+        </article>
+      </div>
+    </div> -->
     </section>
 
-    <section id="workshops" class="section">
-      <h2>Talleres y comunidad</h2>
-      <ul class="timeline">
-        <li>
-          <span class="when">2025</span>
-          <div class="what">
-            <h3>Programa mujeres en datos & GIS</h3>
-            <p>Módulos de OSM/QGIS y mapeo para servicios públicos y ambiente. Diseño de materiales y evaluación.</p>
-          </div>
-        </li>
-        <li>
-          <span class="when">2024</span>
-          <div class="what">
-            <h3>Validación OSM con JOSM</h3>
-            <p>Buenas prácticas, topología, HOT TM, Overpass, HOT Export Tool. </p>
-          </div>
-        </li>
-      </ul>
-    </section>
 
+
+   <!-- WORKSHOPS & COMMUNITY -->
+<section id="workshops" class="section">
+  <h2 class="section__title">Workshops & Community:  Grassroot and community engament programs i have led</h2>
+  <div class="chips chips--scroll" role="list">
+
+    <figure class="chip" role="listitem">
+      <img src="assets/img/interacciones.png" alt="Interacciones" />
+      <figcaption>
+        <h3>Interacciones</h3>
+        <p>Collective processes in rural areas to strengthen social, economic, and environmental bonds.</p>
+      </figcaption>
+    </figure>
+
+    <figure class="chip" role="listitem">
+      <img src="assets/img/manosalcampo.png" alt="Manos al Campo" />
+      <figcaption>
+        <h3>Manos al Campo</h3>
+        <p>Community support and training in agroecological and sustainable practices.</p>
+      </figcaption>
+    </figure>
+
+    <figure class="chip" role="listitem">
+      <img src="assets/img/migrantes.png" alt="Pangea: Migrant Women Network" />
+      <figcaption>
+        <h3>Pangea: Migrant Women Network</h3>
+        <p>A space for support, training, and organization of migrant women in Barcelona.</p>
+      </figcaption>
+    </figure>
+
+    <figure class="chip" role="listitem">
+      <img src="assets/img/women.png" alt="Women in Sustainable Data Science" />
+      <figcaption>
+        <h3>Women in Sustainable Data Science</h3>
+        <p>Empowering women in data science applied to sustainability challenges.</p>
+      </figcaption>
+    </figure>
+
+  </div>
+</section>
+
+
+    <!-- CONTACTO -->
     <section id="contact" class="section">
-      <h2>Contacto</h2>
-      <p>¿Colaboramos? Escríbeme.</p>
+      <h2 class="section__title">Contacto</h2>
       <ul class="links">
-        <li><a href="mailto:correo@ejemplo.com">correo@ejemplo.com</a></li>
-        <li><a href="https://www.linkedin.com/in/usuario" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a href="https://github.com/usuario" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="mailto:sandra.defex@gmail.com">sandra.defex@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/sandra-de-fex/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/sxfexs" target="_blank" rel="noopener">GitHub</a></li>
       </ul>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>© <span id="y"></span> Sandra Ximena De Fex Sierra · Datos abiertos y cartografía para el bien común.</p>
+  <footer class="site-footer" role="contentinfo">
+    <div class="wrap">
+      <p>© <span id="y"></span> Sandra Ximena De Fex Sierra · Datos abiertos, cartografía, y analisis de datos para el bien común.</p>
     </div>
   </footer>
 </body>
