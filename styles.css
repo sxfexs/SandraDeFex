@@ -8,7 +8,7 @@
   --accent-2: #8ec5ff; /* sutil azul */
   --radius: 18px;
   --shadow: 0 10px 30px rgba(0,0,0,.35);
-  --row-h: 500px; /* altura de todas las tarjetas */
+  --row-h: 400px; /* altura de todas las tarjetas */
 }
 
 *{ box-sizing: border-box; }
@@ -80,7 +80,7 @@ body {
 .tags{ display:flex; gap:8px; padding:0; margin:0; list-style:none; flex-wrap:wrap; }
 .tags li{
   border:1px solid rgba(91, 4, 4, 0.882);
-  padding:4px 10px; border-radius:999px; font-size:1rem; color:#d9e4f2; background: rgba(255,255,255,0.03);
+  padding:4px 10px; border-radius:999px; font-size:0.9rem; color:#d9e4f2; background: rgba(255,255,255,0.03);
 }
 
 /* Layout principal con márgenes laterales */
